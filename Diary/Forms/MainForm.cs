@@ -27,7 +27,7 @@ namespace Diary
         {
             PlanUnit unit = new();
             panel1.Controls.Add(unit);
-            
+            unit.BringToFront();
         }
 
         private void button1_Click(object sender, EventArgs e)
