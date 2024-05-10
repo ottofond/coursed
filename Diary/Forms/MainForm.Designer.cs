@@ -116,6 +116,7 @@ namespace Diary
             button2.TabIndex = 2;
             button2.Text = "button2";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button5
             // 
@@ -268,7 +269,7 @@ namespace Diary
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
-            tableLayoutPanel2.Location = new Point(139, 46);
+            tableLayoutPanel2.Location = new Point(47, -1);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 8;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
@@ -279,7 +280,7 @@ namespace Diary
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel2.Size = new Size(467, 329);
+            tableLayoutPanel2.Size = new Size(559, 376);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // MainForm

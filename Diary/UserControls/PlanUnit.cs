@@ -22,10 +22,7 @@ namespace Diary.Items
         {
             InitializeComponent();
         }
-        // Конструктор с параметрами x и y
-
-
-
+        
         private void PlanUnit_DoubleClick(object sender, EventArgs e)
         {
 
