@@ -8,6 +8,7 @@ namespace Diary.items
 {
     public class Note
     {
+        public string date;
         public string note;
         public int locationY;
         public int height;
@@ -15,9 +16,10 @@ namespace Diary.items
         {
             this.note = note;
         }
-        public Note(string note, int locationY, int height)
+        public Note(DateTime date, string note, int locationY, int height)
         {
-            this.note = note;   
+            this.note = note;
+            this.date = date.ToString("MM:yyyy");
             this.locationY = locationY;
             this.height = height;
         }

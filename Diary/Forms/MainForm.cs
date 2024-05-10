@@ -9,7 +9,7 @@ namespace Diary
 {
     public partial class MainForm : Form
     {
-        private DateTime currentDate;
+        private DateTime currentDate = DateTime.Now;
         public MainForm()
         {
             InitializeComponent();
@@ -39,12 +39,12 @@ namespace Diary
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var asd = new Note("balaba bama", 2 ,3);
-            var sad = new Note("bim bim bam bam", 2, 3);
+            Note asd = new Note(currentDate,"balabama bama",100,100);
+            Note sad = new Note(currentDate, "bim bim bam bam", 122, 3322);
             var ggwp = new items.Diary();
-            ggwp.AddElement(currentDate, asd);
-            /*ggwp.AddElement(currentDate, sad);*/
-
+            ggwp.diary.Add(asd);
+            ggwp.diary.Add(sad);
+            ggwp.SaveData("\\cursed\\Diary\\diary.txt");
         }
     }
 }
