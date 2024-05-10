@@ -15,5 +15,11 @@ namespace Diary.items
         {
             this.note = note;
         }
+        public Note(string note, int locationY, int height)
+        {
+            this.note = note;   
+            this.locationY = locationY;
+            this.height = height;
+        }
     }
 }

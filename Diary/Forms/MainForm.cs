@@ -1,4 +1,5 @@
 using Diary.Forms;
+using Diary.items;
 using Diary.Items;
 using System.Data;
 using System.Windows.Forms;
@@ -34,6 +35,16 @@ namespace Diary
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
             currentDate = dateTimePicker1.Value.Date;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var asd = new Note("balaba bama", 2 ,3);
+            var sad = new Note("bim bim bam bam", 2, 3);
+            var ggwp = new items.Diary();
+            ggwp.AddElement(currentDate, asd);
+            /*ggwp.AddElement(currentDate, sad);*/
+
         }
     }
 }
