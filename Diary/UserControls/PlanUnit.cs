@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diary.items;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,20 +14,26 @@ namespace Diary.Items
 {
     public partial class PlanUnit : UserControl
     {
-        private int locationX;
-        private int locationY;
-
+        public PlanUnit(Note Note)
+        {
+            InitializeComponent();
+        }
         public PlanUnit()
         {
             InitializeComponent();
         }
-
         // Конструктор с параметрами x и y
-        public PlanUnit(int x, int y)
+
+
+
+        private void PlanUnit_DoubleClick(object sender, EventArgs e)
         {
-            locationX = x;
-            locationY = y;
-            InitializeComponent();
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

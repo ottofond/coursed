@@ -31,40 +31,42 @@ namespace Diary.Items
         private void InitializeComponent()
         {
             textBox1 = new TextBox();
-            label1 = new Label();
+            textBox2 = new TextBox();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox1.BackColor = SystemColors.HotTrack;
             textBox1.BorderStyle = BorderStyle.FixedSingle;
+            textBox1.Dock = DockStyle.Left;
             textBox1.Enabled = false;
             textBox1.ImeMode = ImeMode.Off;
-            textBox1.Location = new Point(3, 3);
+            textBox1.Location = new Point(0, 0);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(15, 85);
+            textBox1.Size = new Size(15, 89);
             textBox1.TabIndex = 0;
-            textBox1.Text = "sdasdasd";
             // 
-            // label1
+            // textBox2
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(200, 32);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
+            textBox2.Dock = DockStyle.Fill;
+            textBox2.Location = new Point(15, 0);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(483, 89);
+            textBox2.TabIndex = 1;
+            textBox2.Text = "Замітка";
             // 
             // PlanUnit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label1);
+            BackColor = SystemColors.Window;
+            Controls.Add(textBox2);
             Controls.Add(textBox1);
             Name = "PlanUnit";
-            Size = new Size(768, 91);
+            Size = new Size(498, 89);
+            DoubleClick += PlanUnit_DoubleClick;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -72,6 +74,6 @@ namespace Diary.Items
         #endregion
 
         private TextBox textBox1;
-        private Label label1;
+        private TextBox textBox2;
     }
 }

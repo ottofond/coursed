@@ -32,7 +32,7 @@ namespace Diary
         {
             splitContainer1 = new SplitContainer();
             dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
+            dateTimePicker = new DateTimePicker();
             button1 = new Button();
             button3 = new Button();
             button4 = new Button();
@@ -66,20 +66,19 @@ namespace Diary
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePicker1.Location = new Point(458, 12);
+            dateTimePicker1.Location = new Point(0, 0);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(152, 23);
+            dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 0;
-            dateTimePicker1.ValueChanged += DateTimePicker1_ValueChanged;
             // 
-            // dateTimePicker2
+            // dateTimePicker
             // 
-            dateTimePicker2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePicker2.Location = new Point(610, 4);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(178, 23);
-            dateTimePicker2.TabIndex = 5;
+            dateTimePicker.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            dateTimePicker.Location = new Point(610, 4);
+            dateTimePicker.Name = "dateTimePicker";
+            dateTimePicker.Size = new Size(178, 23);
+            dateTimePicker.TabIndex = 5;
+            dateTimePicker.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // button1
             // 
@@ -186,7 +185,7 @@ namespace Diary
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel1.Size = new Size(50, 375);
+            tableLayoutPanel1.Size = new Size(52, 375);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // label8
@@ -280,7 +279,7 @@ namespace Diary
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
-            tableLayoutPanel2.Size = new Size(396, 261);
+            tableLayoutPanel2.Size = new Size(467, 329);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // MainForm
@@ -295,7 +294,7 @@ namespace Diary
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(dateTimePicker2);
+            Controls.Add(dateTimePicker);
             Controls.Add(panel1);
             Name = "MainForm";
             Text = "Form1";
@@ -312,7 +311,7 @@ namespace Diary
 
         private SplitContainer splitContainer1;
         private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimePicker;
         private Button button1;
         private Button button3;
         private Button button4;
