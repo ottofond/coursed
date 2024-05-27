@@ -32,6 +32,8 @@ namespace Diary.Items
         {
             textBox1 = new TextBox();
             textBox2 = new TextBox();
+            startTime = new MaskedTextBox();
+            endTime = new MaskedTextBox();
             SuspendLayout();
             // 
             // textBox1
@@ -44,28 +46,61 @@ namespace Diary.Items
             textBox1.Location = new Point(0, 0);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(15, 89);
+            textBox1.Size = new Size(15, 87);
             textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
-            textBox2.Dock = DockStyle.Fill;
-            textBox2.Location = new Point(15, 0);
+            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Enabled = false;
+            textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBox2.Location = new Point(21, 3);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(483, 89);
+            textBox2.Size = new Size(502, 84);
             textBox2.TabIndex = 1;
             textBox2.Text = "Замітка";
+            // 
+            // startTime
+            // 
+            startTime.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            startTime.BorderStyle = BorderStyle.None;
+            startTime.Enabled = false;
+            startTime.Font = new Font("Consolas", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            startTime.Location = new Point(529, 13);
+            startTime.Mask = "00:00";
+            startTime.Name = "startTime";
+            startTime.Size = new Size(56, 23);
+            startTime.TabIndex = 2;
+            startTime.ValidatingType = typeof(DateTime);
+            // 
+            // endTime
+            // 
+            endTime.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            endTime.BorderStyle = BorderStyle.None;
+            endTime.Enabled = false;
+            endTime.Font = new Font("Consolas", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            endTime.Location = new Point(529, 54);
+            endTime.Mask = "00:00";
+            endTime.Name = "endTime";
+            endTime.Size = new Size(56, 23);
+            endTime.TabIndex = 3;
+            endTime.ValidatingType = typeof(DateTime);
             // 
             // PlanUnit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
+            BackgroundImageLayout = ImageLayout.None;
+            BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(endTime);
+            Controls.Add(startTime);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Name = "PlanUnit";
-            Size = new Size(498, 89);
+            Size = new Size(588, 87);
             DoubleClick += PlanUnit_DoubleClick;
             ResumeLayout(false);
             PerformLayout();
@@ -75,5 +110,7 @@ namespace Diary.Items
 
         private TextBox textBox1;
         private TextBox textBox2;
+        private MaskedTextBox startTime;
+        private MaskedTextBox endTime;
     }
 }
