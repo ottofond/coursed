@@ -44,6 +44,7 @@
             Notificate_Check = new Label();
             startTime = new MaskedTextBox();
             endTime = new MaskedTextBox();
+            dateTimePicker1 = new DateTimePicker();
             PeriodicityBox.SuspendLayout();
             TypeOfNoteBox.SuspendLayout();
             NotificateBox.SuspendLayout();
@@ -52,21 +53,21 @@
             // text
             // 
             text.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            text.Location = new Point(12, 12);
+            text.Location = new Point(12, 17);
             text.Multiline = true;
             text.Name = "text";
-            text.Size = new Size(673, 386);
+            text.Size = new Size(488, 469);
             text.TabIndex = 0;
             // 
             // button1
             // 
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button1.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(489, 403);
+            button1.Location = new Point(511, 415);
             button1.Name = "button1";
-            button1.Size = new Size(95, 34);
+            button1.Size = new Size(105, 31);
             button1.TabIndex = 2;
-            button1.Text = "create";
+            button1.Text = "Створити";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -74,18 +75,18 @@
             // 
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button2.DialogResult = DialogResult.Cancel;
-            button2.Location = new Point(590, 403);
+            button2.Location = new Point(511, 455);
             button2.Name = "button2";
-            button2.Size = new Size(95, 34);
+            button2.Size = new Size(105, 31);
             button2.TabIndex = 3;
-            button2.Text = "cancel";
+            button2.Text = "Скасувати";
             button2.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(702, 17);
+            label1.Location = new Point(521, 43);
             label1.Name = "label1";
             label1.Size = new Size(74, 15);
             label1.TabIndex = 5;
@@ -95,7 +96,7 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(697, 79);
+            label2.Location = new Point(516, 105);
             label2.Name = "label2";
             label2.Size = new Size(90, 15);
             label2.TabIndex = 6;
@@ -118,7 +119,7 @@
             PeriodicityBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             PeriodicityBox.Controls.Add(Periodicity);
             PeriodicityBox.Controls.Add(Periodicity_Check);
-            PeriodicityBox.Location = new Point(691, 148);
+            PeriodicityBox.Location = new Point(511, 180);
             PeriodicityBox.Name = "PeriodicityBox";
             PeriodicityBox.Size = new Size(105, 58);
             PeriodicityBox.TabIndex = 11;
@@ -140,7 +141,7 @@
             TypeOfNoteBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TypeOfNoteBox.Controls.Add(TypeOfNote);
             TypeOfNoteBox.Controls.Add(TypeOfNote_Check);
-            TypeOfNoteBox.Location = new Point(691, 212);
+            TypeOfNoteBox.Location = new Point(511, 244);
             TypeOfNoteBox.Name = "TypeOfNoteBox";
             TypeOfNoteBox.Size = new Size(105, 58);
             TypeOfNoteBox.TabIndex = 12;
@@ -172,7 +173,7 @@
             NotificateBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             NotificateBox.Controls.Add(Notificate);
             NotificateBox.Controls.Add(Notificate_Check);
-            NotificateBox.Location = new Point(691, 276);
+            NotificateBox.Location = new Point(511, 308);
             NotificateBox.Name = "NotificateBox";
             NotificateBox.Size = new Size(105, 58);
             NotificateBox.TabIndex = 13;
@@ -183,8 +184,8 @@
             // 
             Notificate.DropDownStyle = ComboBoxStyle.DropDownList;
             Notificate.FormattingEnabled = true;
-            Notificate.Items.AddRange(new object[] { "10 хвилин", "1 годину", "1 день", "1 тиждень" });
-            Notificate.Location = new Point(6, 20);
+            Notificate.Items.AddRange(new object[] { "не нагадувати", "10 хвилин", "1 годину", "1 день", "1 тиждень" });
+            Notificate.Location = new Point(6, 22);
             Notificate.Name = "Notificate";
             Notificate.Size = new Size(94, 23);
             Notificate.TabIndex = 10;
@@ -204,7 +205,7 @@
             startTime.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             startTime.BorderStyle = BorderStyle.None;
             startTime.Font = new Font("Consolas", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            startTime.Location = new Point(702, 35);
+            startTime.Location = new Point(521, 61);
             startTime.Mask = "00:00";
             startTime.Name = "startTime";
             startTime.Size = new Size(79, 32);
@@ -216,18 +217,27 @@
             endTime.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             endTime.BorderStyle = BorderStyle.None;
             endTime.Font = new Font("Consolas", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            endTime.Location = new Point(702, 97);
+            endTime.Location = new Point(521, 123);
             endTime.Mask = "00:00";
             endTime.Name = "endTime";
             endTime.Size = new Size(79, 32);
             endTime.TabIndex = 4;
             endTime.ValidatingType = typeof(DateTime);
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            dateTimePicker1.Location = new Point(501, 17);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(115, 23);
+            dateTimePicker1.TabIndex = 14;
+            // 
             // CreatePlan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 441);
+            ClientSize = new Size(620, 498);
+            Controls.Add(dateTimePicker1);
             Controls.Add(NotificateBox);
             Controls.Add(TypeOfNoteBox);
             Controls.Add(PeriodicityBox);
@@ -238,9 +248,9 @@
             Controls.Add(button1);
             Controls.Add(startTime);
             Controls.Add(text);
+            MinimumSize = new Size(421, 499);
             Name = "CreatePlan";
             Text = "CreatePlan";
-            Load += CreatePlan_Load;
             PeriodicityBox.ResumeLayout(false);
             PeriodicityBox.PerformLayout();
             TypeOfNoteBox.ResumeLayout(false);
@@ -269,5 +279,6 @@
         private Label Periodicity_Check;
         private Label TypeOfNote_Check;
         private Label Notificate_Check;
+        private DateTimePicker dateTimePicker1;
     }
 }

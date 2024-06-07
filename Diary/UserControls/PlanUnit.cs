@@ -1,4 +1,5 @@
-﻿using Diary.items;
+﻿using Diary.Forms;
+using Diary.items;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,9 @@ namespace Diary.Items
 {
     public partial class PlanUnit : UserControl
     {
-        private Dictionary<string, Color> color= new Dictionary<string, Color>()
+        public Note redactBuff;
+        public event EventHandler UserControlDoubleClicked;
+        private Dictionary<string, Color> color = new Dictionary<string, Color>()
         {
             {"свято", Color.Red },
             {"робота", Color.Gray },
@@ -25,21 +28,17 @@ namespace Diary.Items
         public PlanUnit(Note Note, int width)
         {
             InitializeComponent();
+            redactBuff = Note;
             this.Width = width - 15;
             textBox2.Text = Note.note;
             startTime.Text = Note.startTime.ToString("HH:mm");
             endTime.Text = Note.endTime.ToString("HH:mm");
             textBox1.BackColor = color[Note.type];
-        }
 
-        private void PlanUnit_DoubleClick(object sender, EventArgs e)
-        {
-            // Your code for double click event
         }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void textBox2_DoubleClick(object sender, EventArgs e)
         {
-            // Your code for label click event
+            UserControlDoubleClicked?.Invoke(this, new NoteForRedactSender(redactBuff));
         }
     }
 }

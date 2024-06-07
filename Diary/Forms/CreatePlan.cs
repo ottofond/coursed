@@ -17,44 +17,45 @@ namespace Diary.Forms
 {
     public partial class CreatePlan : Form
     {
-
-        private DateTime currentDate;
+ 
         public Note ResultNote;
-        public CreatePlan(DateTime currentDate)
+ 
+        public CreatePlan()
         {
             InitializeComponent();
-            this.currentDate = currentDate;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.CreateElement();
+        }
+        protected void CreateElement()
+        {
             if
-            (DateTime.TryParseExact(startTime.Text, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime start) &&
+            (AreAllComboBoxesFilled() &&
+            DateTime.TryParseExact(startTime.Text, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime start) &&
             DateTime.TryParseExact(endTime.Text, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime end) &&
-            end > start && AreAllComboBoxesFilled())
+            end > start)
             {
-                if(Periodicity.SelectedIndex == 0)
+                DateTime startTime = new(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, dateTimePicker1.Value.Day, start.Hour, start.Minute, 0);
+                if (Periodicity.SelectedIndex == 0)
                 {
-                    ResultNote = new Note(start, end, text.Text, (string)TypeOfNote.SelectedItem);
+                    ResultNote = new Note(startTime, end, text.Text, (string)TypeOfNote.SelectedItem, Notificate.SelectedIndex);
                 }
                 else
                 {
-                    ResultNote = new NotePeriodical(start, end, text.Text, (string)TypeOfNote.SelectedItem, Periodicity.SelectedIndex);
+                    MessageBox.Show($"{startTime}", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ResultNote = new NotePeriodical(startTime, end, text.Text, (string)TypeOfNote.SelectedItem, Periodicity.SelectedIndex, Notificate.SelectedIndex);
                 }
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Please enter a valid time in HH:mm format.");
+                MessageBox.Show("Будь ласка введіть коректні значення часу, та заповніть усі поля");
             }
         }
-
-        private void CreatePlan_Load(object sender, EventArgs e)
-        {
-
-        }
-        private bool AreAllComboBoxesFilled()
+        protected bool AreAllComboBoxesFilled()
         {
             Dictionary <ComboBox, Label> comboBoxLabelPairs = new()
             {
@@ -77,10 +78,7 @@ namespace Diary.Forms
                     pair.Value.ForeColor = System.Drawing.Color.White;
                 }
             }
-
             return all;
         }
-
-       
     }
 }

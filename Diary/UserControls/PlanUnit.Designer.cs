@@ -53,14 +53,15 @@ namespace Diary.Items
             // 
             textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Enabled = false;
             textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             textBox2.Location = new Point(21, 3);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
             textBox2.Size = new Size(502, 84);
             textBox2.TabIndex = 1;
             textBox2.Text = "Замітка";
+            textBox2.DoubleClick += textBox2_DoubleClick;
             // 
             // startTime
             // 
@@ -84,6 +85,7 @@ namespace Diary.Items
             endTime.Location = new Point(529, 54);
             endTime.Mask = "00:00";
             endTime.Name = "endTime";
+            endTime.ReadOnly = true;
             endTime.Size = new Size(56, 23);
             endTime.TabIndex = 3;
             endTime.ValidatingType = typeof(DateTime);
@@ -101,7 +103,6 @@ namespace Diary.Items
             Controls.Add(textBox1);
             Name = "PlanUnit";
             Size = new Size(588, 87);
-            DoubleClick += PlanUnit_DoubleClick;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -30,17 +30,16 @@ namespace Diary
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             splitContainer1 = new SplitContainer();
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker = new DateTimePicker();
-            button1 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button2 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
+            CreateButton = new Button();
+            ForwardButton = new Button();
+            BackButton = new Button();
+            ExitButton = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            NotificationTimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.SuspendLayout();
             SuspendLayout();
@@ -62,82 +61,54 @@ namespace Diary
             // dateTimePicker
             // 
             dateTimePicker.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePicker.Location = new Point(599, 4);
+            dateTimePicker.Location = new Point(575, 4);
             dateTimePicker.Name = "dateTimePicker";
             dateTimePicker.Size = new Size(178, 23);
             dateTimePicker.TabIndex = 5;
             dateTimePicker.ValueChanged += dateTimePicker_ValueChanged;
             // 
-            // button1
+            // CreateButton
             // 
-            button1.Location = new Point(12, 33);
-            button1.Name = "button1";
-            button1.Size = new Size(159, 25);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            CreateButton.Location = new Point(12, 33);
+            CreateButton.Name = "CreateButton";
+            CreateButton.Size = new Size(159, 25);
+            CreateButton.TabIndex = 1;
+            CreateButton.Text = "Створити подію";
+            CreateButton.UseVisualStyleBackColor = true;
+            CreateButton.Click += CreateButton_Click;
             // 
-            // button3
+            // ForwardButton
             // 
-            button3.Location = new Point(12, 95);
-            button3.Name = "button3";
-            button3.Size = new Size(159, 25);
-            button3.TabIndex = 3;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            ForwardButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ForwardButton.Location = new Point(668, 446);
+            ForwardButton.Name = "ForwardButton";
+            ForwardButton.Size = new Size(85, 25);
+            ForwardButton.TabIndex = 6;
+            ForwardButton.Text = "Вперед";
+            ForwardButton.UseVisualStyleBackColor = true;
+            ForwardButton.Click += ForwardButton_Click;
             // 
-            // button4
+            // BackButton
             // 
-            button4.Location = new Point(12, 126);
-            button4.Name = "button4";
-            button4.Size = new Size(159, 25);
-            button4.TabIndex = 4;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            BackButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            BackButton.Location = new Point(577, 446);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(85, 25);
+            BackButton.TabIndex = 7;
+            BackButton.Text = "Назад";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
             // 
-            // button2
+            // ExitButton
             // 
-            button2.Location = new Point(12, 64);
-            button2.Name = "button2";
-            button2.Size = new Size(159, 25);
-            button2.TabIndex = 2;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // button5
-            // 
-            button5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button5.Location = new Point(692, 408);
-            button5.Name = "button5";
-            button5.Size = new Size(85, 25);
-            button5.TabIndex = 6;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button6.Location = new Point(601, 408);
-            button6.Name = "button6";
-            button6.Size = new Size(85, 25);
-            button6.TabIndex = 7;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
-            // button7
-            // 
-            button7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button7.Location = new Point(12, 408);
-            button7.Name = "button7";
-            button7.Size = new Size(159, 25);
-            button7.TabIndex = 8;
-            button7.Text = "button7";
-            button7.UseVisualStyleBackColor = true;
+            ExitButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ExitButton.Location = new Point(12, 446);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(159, 25);
+            ExitButton.TabIndex = 8;
+            ExitButton.Text = "Вийти  з застосунку";
+            ExitButton.UseVisualStyleBackColor = true;
+            ExitButton.Click += ExitButton_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -149,27 +120,31 @@ namespace Diary
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(177, 33);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(600, 369);
+            flowLayoutPanel1.Size = new Size(576, 407);
             flowLayoutPanel1.TabIndex = 0;
             flowLayoutPanel1.WrapContents = false;
             flowLayoutPanel1.Resize += flowLayoutPanel1_Resize;
+            // 
+            // NotificationTimer
+            // 
+            NotificationTimer.Enabled = true;
+            NotificationTimer.Interval = 60000;
+            NotificationTimer.Tick += Check_Storage_Notifications;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(796, 444);
+            ClientSize = new Size(772, 482);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(ExitButton);
+            Controls.Add(BackButton);
+            Controls.Add(ForwardButton);
+            Controls.Add(CreateButton);
             Controls.Add(dateTimePicker);
+            MinimumSize = new Size(504, 298);
             Name = "MainForm";
-            Text = "Form1";
+            Text = "Diary";
             Load += MainForm_Load;
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
@@ -181,13 +156,14 @@ namespace Diary
         private SplitContainer splitContainer1;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker;
-        private Button button1;
+        private Button CreateButton;
         private Button button3;
         private Button button4;
         private Button button2;
-        private Button button5;
-        private Button button6;
-        private Button button7;
+        private Button ForwardButton;
+        private Button BackButton;
+        private Button ExitButton;
         public FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Timer NotificationTimer;
     }
 }
