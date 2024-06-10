@@ -34,9 +34,9 @@
             label1 = new Label();
             endTime = new MaskedTextBox();
             startTime = new MaskedTextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            redactButton = new Button();
+            returnButton = new Button();
+            deleteButton = new Button();
             SuspendLayout();
             // 
             // text
@@ -100,49 +100,48 @@
             startTime.TabIndex = 7;
             startTime.ValidatingType = typeof(DateTime);
             // 
-            // button1
+            // redactButton
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Location = new Point(199, 268);
-            button1.Name = "button1";
-            button1.Size = new Size(147, 25);
-            button1.TabIndex = 11;
-            button1.Text = "Змінити";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            redactButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            redactButton.Location = new Point(199, 268);
+            redactButton.Name = "redactButton";
+            redactButton.Size = new Size(147, 25);
+            redactButton.TabIndex = 11;
+            redactButton.Text = "Змінити";
+            redactButton.UseVisualStyleBackColor = true;
+            redactButton.Click += redactButton_Click;
             // 
-            // button2
+            // returnButton
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.DialogResult = DialogResult.Ignore;
-            button2.Location = new Point(199, 299);
-            button2.Name = "button2";
-            button2.Size = new Size(147, 25);
-            button2.TabIndex = 12;
-            button2.Text = "Повернутися без змін\r\n\r\n";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            returnButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            returnButton.DialogResult = DialogResult.Ignore;
+            returnButton.Location = new Point(199, 299);
+            returnButton.Name = "returnButton";
+            returnButton.Size = new Size(147, 25);
+            returnButton.TabIndex = 12;
+            returnButton.Text = "Повернутися без змін\r\n\r\n";
+            returnButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // deleteButton
             // 
-            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button3.DialogResult = DialogResult.Abort;
-            button3.Location = new Point(199, 330);
-            button3.Name = "button3";
-            button3.Size = new Size(147, 25);
-            button3.TabIndex = 13;
-            button3.Text = "Видалити";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            deleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            deleteButton.DialogResult = DialogResult.Abort;
+            deleteButton.Location = new Point(199, 330);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(147, 25);
+            deleteButton.TabIndex = 13;
+            deleteButton.Text = "Видалити";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += button3_Click;
             // 
             // RedactingForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(358, 367);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(deleteButton);
+            Controls.Add(returnButton);
+            Controls.Add(redactButton);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(endTime);
@@ -164,8 +163,8 @@
         private Label label1;
         private MaskedTextBox endTime;
         private MaskedTextBox startTime;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button redactButton;
+        private Button returnButton;
+        private Button deleteButton;
     }
 }

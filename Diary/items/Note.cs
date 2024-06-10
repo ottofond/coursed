@@ -67,7 +67,6 @@ namespace Diary.items
 
             }
         }
-
         public int CompareTo(Note? other)
         {
             if (other == null)
@@ -80,6 +79,36 @@ namespace Diary.items
                 TimeSpan otherTime = other.startTime.TimeOfDay;
                 return thisTime.CompareTo(otherTime);
             }
+        }
+        public virtual bool CheckNoteCrossing(DiaryStorage storage)
+        {
+            if (storage.diary.Keys.Contains(this.startTime.Date))
+            {
+                foreach (Note other in storage.diary[this.startTime.Date])
+                {
+                    if (other.note != this.note &&
+                        this.startTime < other.endTime &&
+                        this.endTime.TimeOfDay > other.startTime.TimeOfDay)
+                    {
+                        return true;
+                    }
+
+                }
+            }
+            foreach (var other in storage.periodicDiary.Keys)
+            {
+                foreach (DateTime otherDate in storage.periodicDiary[other])
+                {
+                    if (this.startTime.Date == otherDate.Date &&
+                       this.endTime.TimeOfDay > other.startTime.TimeOfDay &&
+                       this.startTime.TimeOfDay < other.endTime.TimeOfDay
+                       )
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

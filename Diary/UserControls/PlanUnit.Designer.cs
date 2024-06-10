@@ -31,7 +31,7 @@ namespace Diary.Items
         private void InitializeComponent()
         {
             textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textBox = new TextBox();
             startTime = new MaskedTextBox();
             endTime = new MaskedTextBox();
             SuspendLayout();
@@ -49,19 +49,19 @@ namespace Diary.Items
             textBox1.Size = new Size(15, 87);
             textBox1.TabIndex = 0;
             // 
-            // textBox2
+            // textBox
             // 
-            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBox2.Location = new Point(21, 3);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(502, 84);
-            textBox2.TabIndex = 1;
-            textBox2.Text = "Замітка";
-            textBox2.DoubleClick += textBox2_DoubleClick;
+            textBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox.BorderStyle = BorderStyle.None;
+            textBox.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            textBox.Location = new Point(21, 3);
+            textBox.Multiline = true;
+            textBox.Name = "textBox";
+            textBox.ReadOnly = true;
+            textBox.Size = new Size(502, 84);
+            textBox.TabIndex = 1;
+            textBox.Text = "Замітка";
+            textBox.DoubleClick += textBox_DoubleClick;
             // 
             // startTime
             // 
@@ -99,7 +99,7 @@ namespace Diary.Items
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(endTime);
             Controls.Add(startTime);
-            Controls.Add(textBox2);
+            Controls.Add(textBox);
             Controls.Add(textBox1);
             Name = "PlanUnit";
             Size = new Size(588, 87);
@@ -110,7 +110,7 @@ namespace Diary.Items
         #endregion
 
         private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textBox;
         private MaskedTextBox startTime;
         private MaskedTextBox endTime;
     }

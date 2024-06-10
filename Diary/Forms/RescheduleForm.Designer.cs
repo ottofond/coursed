@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            deleteButton = new Button();
+            redactButton = new Button();
             label1 = new Label();
             textBox1 = new TextBox();
             label2 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // deleteButton
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button1.Location = new Point(12, 135);
-            button1.Name = "button1";
-            button1.Size = new Size(163, 32);
-            button1.TabIndex = 0;
-            button1.Text = "Видалити";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            deleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            deleteButton.Location = new Point(12, 135);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(163, 32);
+            deleteButton.TabIndex = 0;
+            deleteButton.Text = "Видалити";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
-            // button2
+            // redactButton
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.Location = new Point(183, 135);
-            button2.Name = "button2";
-            button2.Size = new Size(164, 32);
-            button2.TabIndex = 1;
-            button2.Text = "Відредагувати";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            redactButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            redactButton.Location = new Point(183, 135);
+            redactButton.Name = "redactButton";
+            redactButton.Size = new Size(164, 32);
+            redactButton.TabIndex = 1;
+            redactButton.Text = "Відредагувати";
+            redactButton.UseVisualStyleBackColor = true;
+            redactButton.Click += redactButton_Click;
             // 
             // label1
             // 
@@ -94,8 +94,8 @@
             Controls.Add(label2);
             Controls.Add(textBox1);
             Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(redactButton);
+            Controls.Add(deleteButton);
             MinimumSize = new Size(375, 213);
             Name = "RescheduleForm";
             Text = "Reschedule_Form";
@@ -105,8 +105,8 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button deleteButton;
+        private Button redactButton;
         private Label label1;
         private TextBox textBox1;
         private Label label2;

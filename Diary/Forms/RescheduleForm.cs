@@ -27,13 +27,13 @@ namespace Diary.Forms
             textBox1.Text = note.note;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void redactButton_Click(object sender, EventArgs e)
         {
           
             DialogResult = DialogResult.OK;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void deleteButton_Click(object sender, EventArgs e)
         {
             
             DialogResult = DialogResult.Abort;
