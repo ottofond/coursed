@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Diary.items;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 namespace Diary
 {
@@ -14,7 +13,7 @@ namespace Diary
         private DateTime currentDate = DateTime.Now;
         private DiaryStorage Storage = new();
         private const string DATA_PATH = "\\cursed\\Diary\\diary.json";
-        private const string DATA_PATH2 = "\\cursed\\Diary\\diaryP.json";
+        
 
         public MainForm()
         {
@@ -45,7 +44,8 @@ namespace Diary
         private void Check_Storage_Notifications(object sender, EventArgs e)
         {
             Storage.Notification();
-
+            Storage.CheckForReschlude();
+            Storage.ShowData(currentDate, flowLayoutPanel1);
         }
         private void flowLayoutPanel1_Resize(object sender, EventArgs e)
         {

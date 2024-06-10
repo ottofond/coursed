@@ -30,13 +30,13 @@ namespace Diary.Items
             InitializeComponent();
             redactBuff = Note;
             this.Width = width - 15;
-            textBox2.Text = Note.note;
+            textBox.Text = Note.note;
             startTime.Text = Note.startTime.ToString("HH:mm");
             endTime.Text = Note.endTime.ToString("HH:mm");
             textBox1.BackColor = color[Note.type];
 
         }
-        private void textBox2_DoubleClick(object sender, EventArgs e)
+        private void textBox_DoubleClick(object sender, EventArgs e)
         {
             UserControlDoubleClicked?.Invoke(this, new NoteForRedactSender(redactBuff));
         }

@@ -25,11 +25,11 @@ namespace Diary.Forms
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void createButton_Click(object sender, EventArgs e)
         {
             this.CreateElement();
         }
-        protected void CreateElement()
+        private void CreateElement()
         {
             if
             (AreAllComboBoxesFilled() &&
@@ -44,7 +44,6 @@ namespace Diary.Forms
                 }
                 else
                 {
-                    MessageBox.Show($"{startTime}", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ResultNote = new NotePeriodical(startTime, end, text.Text, (string)TypeOfNote.SelectedItem, Periodicity.SelectedIndex, Notificate.SelectedIndex);
                 }
                 DialogResult = DialogResult.OK;
@@ -55,7 +54,7 @@ namespace Diary.Forms
                 MessageBox.Show("Будь ласка введіть коректні значення часу, та заповніть усі поля");
             }
         }
-        protected bool AreAllComboBoxesFilled()
+        private bool AreAllComboBoxesFilled()
         {
             Dictionary <ComboBox, Label> comboBoxLabelPairs = new()
             {

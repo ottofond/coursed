@@ -25,13 +25,7 @@ namespace Diary.Forms
             endTime.Text = noteForRedact.endTime.ToString("HH:mm");
             dateTimePicker1.Value = noteForRedact.startTime.Date;
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Ignore;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void redactButton_Click(object sender, EventArgs e)
         {
             this.RedactElement();
         }

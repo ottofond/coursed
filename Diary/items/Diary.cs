@@ -59,72 +59,14 @@ namespace Diary.items
                 }
             }
         }
-        public bool CheckForCrossing(Note note) 
+
+        public bool CheckForCrossing(Note note)
         {
-             
-            if (note is NotePeriodical periodicalToCheck)
+            if(note is NotePeriodical notePeriodical)
             {
-                foreach (DateTime date in periodicDiary[periodicalToCheck])
-                {
-                    if (diary.Keys.Contains(date.Date))
-                    {
-                        foreach (Note other in diary[date.Date])
-                        {
-                            if (other.startTime.TimeOfDay < periodicalToCheck.endTime.TimeOfDay &&
-                                other.endTime.TimeOfDay > periodicalToCheck.startTime.TimeOfDay)
-                            {
-                                return true;
-                            }
-                        }
-                    }
-                    foreach (NotePeriodical other in periodicDiary.Keys)
-                    {
-                        foreach(DateTime otherDate in periodicDiary[other])
-                        {
-                            if (other.note != periodicalToCheck.note &&
-                                otherDate.Date==date.Date &&
-                                periodicalToCheck.endTime.TimeOfDay > other.startTime.TimeOfDay &&
-                                periodicalToCheck.startTime.TimeOfDay< other.endTime.TimeOfDay)
-                            {
-                                return true ;
-                            }
-                        }
-                    }
-                }
+                return notePeriodical.CheckNoteCrossing(this);
             }
-            else if(note is Note noteToCheck)
-            {
-                if (diary.Keys.Contains(note.startTime.Date))
-                {
-                    foreach (Note other in diary[note.startTime.Date])
-                    {
-                        if (other.note != noteToCheck.note &&
-                            noteToCheck.startTime < other.endTime && 
-                            noteToCheck.endTime.TimeOfDay > other.startTime.TimeOfDay)
-                        {
-                            return true;
-                        }
-
-                    }
-                }
-
-                foreach (var other in periodicDiary.Keys)
-                {
-                    foreach (DateTime otherDate in periodicDiary[other])
-                    {
-                        if (noteToCheck.startTime.Date == otherDate.Date &&
-                           noteToCheck.endTime.TimeOfDay > other.startTime.TimeOfDay &&
-                           noteToCheck.startTime.TimeOfDay < other.endTime.TimeOfDay
-                           )
-                        {
-                             
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-            return false;
+            return note.CheckNoteCrossing(this);
         }
 
         public void SaveData(string path)
@@ -307,9 +249,8 @@ namespace Diary.items
                     {
                         CallRedacrtForm(result);
                     }
-                    else if (dialogResult2 == DialogResult.Cancel)
+                    else if (dialogResult2 == DialogResult.Abort)
                     {
-
                         Remove(result);
                     }
                 }
@@ -338,10 +279,9 @@ namespace Diary.items
                     {
                         CallRedacrtForm(result);
                     }
-                    else if (dialogResult == DialogResult.Cancel)
-                    {
-                       
-                        Remove(result);
+                    else if (dialogResult == DialogResult.Abort)
+                    {  
+                        RemoveNote(result);
                     }
                 }
             }

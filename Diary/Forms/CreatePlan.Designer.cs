@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             text = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            createButton = new Button();
+            backButton = new Button();
             label1 = new Label();
             label2 = new Label();
             Periodicity = new ComboBox();
@@ -59,28 +59,28 @@
             text.Size = new Size(488, 469);
             text.TabIndex = 0;
             // 
-            // button1
+            // createButton
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(511, 415);
-            button1.Name = "button1";
-            button1.Size = new Size(105, 31);
-            button1.TabIndex = 2;
-            button1.Text = "Створити";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            createButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            createButton.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            createButton.Location = new Point(511, 415);
+            createButton.Name = "createButton";
+            createButton.Size = new Size(105, 31);
+            createButton.TabIndex = 2;
+            createButton.Text = "Створити";
+            createButton.UseVisualStyleBackColor = true;
+            createButton.Click += createButton_Click;
             // 
-            // button2
+            // backButton
             // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button2.DialogResult = DialogResult.Cancel;
-            button2.Location = new Point(511, 455);
-            button2.Name = "button2";
-            button2.Size = new Size(105, 31);
-            button2.TabIndex = 3;
-            button2.Text = "Скасувати";
-            button2.UseVisualStyleBackColor = true;
+            backButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            backButton.DialogResult = DialogResult.Cancel;
+            backButton.Location = new Point(511, 455);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(105, 31);
+            backButton.TabIndex = 3;
+            backButton.Text = "Скасувати";
+            backButton.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -244,8 +244,8 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(endTime);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(backButton);
+            Controls.Add(createButton);
             Controls.Add(startTime);
             Controls.Add(text);
             MinimumSize = new Size(421, 499);
@@ -264,8 +264,8 @@
         #endregion
 
         private TextBox text;
-        private Button button1;
-        private Button button2;
+        private Button createButton;
+        private Button backButton;
         private Label label1;
         private Label label2;
         private ComboBox Periodicity;
